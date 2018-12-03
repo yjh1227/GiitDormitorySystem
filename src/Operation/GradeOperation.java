@@ -22,7 +22,7 @@ public class GradeOperation {
 		PreparedStatement prepare = conn
 				.prepareStatement(" insert into grade (dorm_id,discipline,checks,health,grade,dates,managers_id ) "
 						+ " values(?,?,?,?,?,?,?) ");
-		// 传参
+		// 传参		
 		prepare.setString(1, addgrade.getDorm_id());
 		prepare.setInt(2, addgrade.getDiscipline());
 		prepare.setInt(3, addgrade.getChecks());
@@ -32,13 +32,11 @@ public class GradeOperation {
 		prepare.setInt(7, addgrade.getManagers_id());
 		prepare.execute();
 	}
-
-	/**
-	 * 更新宿舍评比
-	 * 
-	 * @param updategrade
-	 * @throws SQLException
-	 */
+/**
+ * 更新宿舍评比
+ * @param updategrade
+ * @throws SQLException
+ */
 	public void UpDateGrade(GradeModel updategrade) throws SQLException {
 		Connection conn = db.getConnection();
 		PreparedStatement prepare = conn.prepareStatement(
@@ -53,41 +51,33 @@ public class GradeOperation {
 		prepare.setInt(8, updategrade.getManagers_id());
 		prepare.execute();
 	}
-
-	/**
-	 * 删除宿舍评比记录
-	 * 
-	 * @param deletegrade
-	 *            宿舍号，根据宿舍号删除宿舍评比
-	 * @throws SQLException
-	 */
+/**
+ * 删除宿舍评比记录
+ * @param deletegrade  宿舍号，根据宿舍号删除宿舍评比
+ * @throws SQLException
+ */
 	public void DeleteLived(GradeModel deletegrade) throws SQLException {
 		Connection conn = db.getConnection();
 		PreparedStatement prepare = conn.prepareStatement("delete from grade where dorm_id = ? ");
 		prepare.setString(1, deletegrade.getDorm_id());
 		prepare.execute();
 	}
-
-	/**
-	 * 删除宿舍
-	 * 
-	 * @param row
-	 *            宿舍ID 删除宿舍评比单条记录
-	 * @throws SQLException
-	 */
+/**
+ * 删除宿舍
+ * @param row 宿舍ID 删除宿舍评比单条记录
+ * @throws SQLException
+ */
 	public void DeleteRemove(int row) throws SQLException {
 		Connection conn = db.getConnection();
 		PreparedStatement delete = conn.prepareStatement(" delete from grade where grade_id = ? ");
 		delete.setInt(1, row);
 		delete.execute();
 	}
-
-	/**
-	 * 查询评比所有记录
-	 * 
-	 * @return
-	 * @throws Exception
-	 */
+/**
+ * 查询评比所有记录
+ * @return
+ * @throws Exception
+ */
 	public List<GradeModel> selectall() throws Exception {
 		Connection conn = db.getConnection();
 		Statement sme = conn.createStatement();
@@ -109,14 +99,12 @@ public class GradeOperation {
 		return live;
 
 	}
-
-	/**
-	 * 查询单条宿舍评比信息
-	 * 
-	 * @param dorm_id
-	 * @return
-	 * @throws Exception
-	 */
+/**
+ * 查询单条宿舍评比信息
+ * @param dorm_id
+ * @return
+ * @throws Exception
+ */
 	public GradeModel selectone(Integer dorm_id) throws Exception {
 		Connection conn = db.getConnection();
 		PreparedStatement select = conn.prepareStatement(" select * from grade where dorm_id =  ? ");
@@ -137,14 +125,12 @@ public class GradeOperation {
 		}
 		return live;
 	}
-
-	/**
-	 * 查询单条记录
-	 * 
-	 * @param dorm_id
-	 * @return
-	 * @throws Exception
-	 */
+/**
+ * 查询单条记录
+ * @param dorm_id
+ * @return
+ * @throws Exception
+ */
 	public GradeModel select(Integer dorm_id) throws Exception {
 		Connection conn = db.getConnection();
 		PreparedStatement select = conn.prepareStatement(" select * from grade where dorm_id =  ? ");
