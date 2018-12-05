@@ -33,7 +33,7 @@ public class Managers extends JFrame {
 		super("宿舍管理系统");
 		jpl = new JPanel();
 		label = new MoveLabel(
-				"欢迎登录宿舍管理系统                                                                                                    欢迎登录宿舍管理系统                                                                                                    欢迎登录宿舍管理系统");
+				"欢迎来到桂电信息宿舍管理系统                                                                                                    欢迎来到桂电信息宿舍管理系统                                                                                                    欢迎来到桂电信息宿舍管理系统");
 		label.setOpaque(false); // 透明
 		label.setFont(new Font("宋体", Font.BOLD, 20));
 		label.setSize(1366, 20);
